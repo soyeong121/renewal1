@@ -1,5 +1,21 @@
 $(function () {
 
+	var $nav = $('#topMenu');
+	var $submenus = $('.submenu');
+	var $submenuContainer = $('<div id = "submenuContainer"></div>').appendTo($nav).height($submenus.outerHeight());
+
+	$nav.find('ul > li > a').on('mouseenter', function(e){
+		e.preventDefault();
+		$submenus.slideDown();
+		$submenuContainer.css('height','400px');
+		$submenuContainer.slideDown();
+	});
+	$nav.on('mouseleave', function(){
+		$submenus.slideUp();
+		$submenuContainer.slideUp();
+	});
+
+	/*
 	// 하위메뉴
 	var $container1 = $('#submenu1'),
 		$container2 = $('#submenu2'),
@@ -99,6 +115,7 @@ $(function () {
 		$container7.slideUp();
 		$submenu.slideUp();
 	});
+	*/
 
 	// page2
 	// 왼쪽 메뉴 드롭다운

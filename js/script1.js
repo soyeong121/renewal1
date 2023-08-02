@@ -1,5 +1,20 @@
 $(function () {
 
+	var $nav = $('#topMenu');
+	var $submenus = $('.submenu');
+	var $submenuContainer = $('<div id = "submenuContainer"></div>').appendTo($nav).height($submenus.outerHeight());
+
+	$nav.find('ul > li > a').on('mouseenter', function(e){
+		e.preventDefault();
+		$submenus.slideDown();
+		$submenuContainer.css('height','400px');
+		$submenuContainer.slideDown();
+	});
+	$nav.on('mouseleave', function(){
+		$submenus.slideUp();
+		$submenuContainer.slideUp();
+	});
+/*
 	// 하위메뉴
 	var $container1 = $('#submenu1'),
 		$container2 = $('#submenu2'),
@@ -94,7 +109,8 @@ $(function () {
 		$submenu.slideDown();
 	});
 
-	$nav.on('mouseleave', function () {
+	$nav.on('mouseleave', function (e) {
+		e.preventDefault();
 		$container1.slideUp();
 		$container2.slideUp();
 		$container3.slideUp();
@@ -104,6 +120,7 @@ $(function () {
 		$container7.slideUp();
 		$submenu.slideUp();
 	});
+	*/
 
 	// 루프 슬라이드 (배너)
 	const list = document.querySelector('.slide__list');
