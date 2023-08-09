@@ -59,4 +59,19 @@ $(function () {
 		$('#title2').removeClass();
 		$('#title3').removeClass();
 	});
+
+	// 선택 영역이 아닌 다른 곳을 클릭 했을 때 height menu 닫기
+	$(document).on('click', function(e) {
+		var content = $("#content1");
+		if (!$(e.target).closest(content).length) {
+			$('#height1 > li > ul').slideUp();
+			$('#height2 > li > ul').slideUp();
+			$('#height3 > li > ul').slideUp();
+			$('#height4 > li > ul').slideUp();
+			$('#title1').removeClass();
+			$('#title2').removeClass();
+			$('#title3').removeClass();
+			$('#title4').removeClass();
+		}
+	});
 });
